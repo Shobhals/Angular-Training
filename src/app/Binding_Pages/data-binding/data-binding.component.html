@@ -1,0 +1,257 @@
+<div class="container overflow-hidden">
+    <div class="row px-4">
+        <div class="col-6">
+            <!-- 1.Interpolation -->
+            <h1>{{title1}}</h1>
+            <h4>{{name}}</h4>
+        </div>
+
+        <div class="col-6">
+            <!-- 2. property binding -->
+            <h1>{{title2}}</h1>
+            <h3 [hidden]="secretTextHidden">Secret Text</h3>
+
+            <button class="btn btn-primary" (click)="enableText()">Enable TextBox</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <!-- 3.Class Binding -->
+            <div class="box">
+                <h4>{{ title3 }}</h4>
+                <div [class.myclass]="true">Apply Class</div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <!-- Style Binding   -->
+            <h2>{{ title4}}</h2>
+            <div class="box1" [style.margin]="isActive? myStyle1 : '5px'">Apply Style</div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <!-- 5.Event Binding   -->
+            <h2>{{title5}}</h2>
+            <button class="btn btn-primary" (click)="getData('')">Call function</button>
+        </div>
+
+        <div class="col-6">
+            <h2>{{title6}}</h2>
+            <button class="btn btn-primary" (click)="myEvent('click event')">Click me</button>
+            <br><br>
+
+            <input type="text" #box1 (keyup)="myEvent('box1.value')" placeholder="keyup event" />
+            <br><br>
+
+            <input type="text" #box2 (keyup.enter)="myEvent(box2.value)" placeholder="key enter event" />
+            <br><br>
+
+            <input type="text" #box3 (keyup.space)="myEvent(box3.value)" placeholder="key space event" />
+            <br><br>
+
+            <input type="text" #box4 (keydown)="getData(box4.value)" placeholder="event keydown" />
+            <br><br>
+
+            <input type="text" #box5 (blur)="getData(box5.value)" placeholder="blur event" />
+            <br><br>
+
+            <div (mouseover)="myEvent('mouse in')" style="background-color: skyblue;">
+                Mouse Events
+            </div>
+
+            <br><br>
+            <div (mouseleave)="myEvent('mouse out')" style="background-color: skyblue;">
+                Mouse Events
+            </div>
+        </div>
+    </div>
+    <hr>
+  
+    <!-- 3.Class and style binding  -->
+    <!-- <h2 [style.color]="color" [style.backgroundColor]="bgColor">{{ title3 }}</h2>
+<button class="btn btn-primary" (click)="updateColor()">Update Color</button> -->
+    <br>
+
+    <!-- 4.Class Binding -->
+    <!-- <div class="box">
+        <h2>{{ title3 }}</h2>
+        <div [class.myclass]="true">Apply Class</div>
+    </div>
+    <br>
+    <hr> -->
+
+    <!-- Style Binding   -->
+    <!-- <h2>{{ title4}}</h2>
+    <div class="box1" [style.margin]="isActive? myStyle1 : '5px'">Apply Style</div> -->
+
+    <!-- <hr> -->
+    <!-- 5.Event Binding   -->
+    <!-- <h2>{{title5}}</h2>
+    <button class="btn btn-primary" (click)="getData('')">Call function</button>
+    <br>
+    <br> -->
+
+    <!-- <h2>{{title6}}</h2>
+    <button class="btn btn-primary" (click)="myEvent('click event')">Click me</button>
+    <br><br>
+
+    <input type="text" #box1 (keyup)="myEvent('box1.value')" placeholder="keyup event" />
+    <br><br>
+
+    <input type="text" #box2 (keyup.enter)="myEvent(box2.value)" placeholder="key enter event" />
+    <br><br>
+
+    <input type="text" #box3 (keyup.space)="myEvent(box3.value)" placeholder="key space event" />
+    <br><br>
+
+    <input type="text" #box4 (keydown)="getData(box4.value)" placeholder="event keydown" />
+    <br><br>
+
+    <input type="text" #box5 (blur)="getData(box5.value)" placeholder="blur event" />
+    <br><br>
+
+    <div (mouseover)="myEvent('mouse in')" style="background-color: skyblue;">
+        Mouse Events
+    </div>
+
+    <br><br>
+    <div (mouseleave)="myEvent('mouse out')" style="background-color: skyblue;">
+        Mouse Events
+    </div>
+    <br><br> -->
+
+    <!-- ngx boostrap angular  -->
+
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker>
+        </div>
+        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input type="text" placeholder="Daterangepicker" class="form-control" bsDaterangepicker>
+        </div>
+    </div>
+
+    <br><br>
+
+    <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Toggle collapse
+    </button>
+  <br><br>
+    <div id="collapseBasic" [collapse]="isCollapsed">
+        <div class="well well-lg card card-block card-header">Some content</div>
+    </div>
+
+    <br><br>
+    <br><br>
+    <hr>
+
+    <!-- NgIf else & then Directive -->
+
+    <div class="container">
+        <button class="btn btn-success" (click)="onCreateAccount()">Create Account</button>
+        <br><br>
+
+        <div *ngIf="isValid">Your Account has been created</div>
+
+        <ng-template #thenblock>
+            Your Account has been created
+        </ng-template>
+        <ng-template #elseblock>
+            <div>No account has been created</div>
+        </ng-template>
+    </div>
+    <br>
+    <!-- <hr>
+<div class="container">
+    <div class="col-md-2">
+        <select class="form-control" (change)="getProductVal($event)"> 
+            <option value="Laptop">Laptop</option>
+            <option value="Mobile">Mobile</option>
+            <option value="TV">TV</option>
+            <option value="Washing Machine">Washing Machine</option>
+        </select>
+    </div>
+    <br>
+    <div class="col-md-12">
+        <h4 class="text-success">Laptop</h4>
+        <h4 class="text-success">Mobile</h4>
+        <h4 class="text-success">TV</h4>
+        <h4 class="text-success">Washing Machine</h4>
+    </div>
+</div> -->
+    
+
+     <!-- ngFor  -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <table class="table">
+                    <thead class="thead-dark" bgcolor="black">
+                        <tr>
+                            <th>Serial No</th>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <th>Product ID</th>
+                            <th>Product Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let mypro of products, index as i">
+                            <td>#{{i+1}}</td>
+                            <td>Product Image</td>
+                            <td>{{mypro.name}}</td>
+                            <td>{{mypro.id}}</td>
+                            <td>{{mypro.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <br>
+    <hr>
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" name="" class="form-control" #uname placeholder="User Name">
+            </div>
+
+            <div class="col-md-3">
+                <button class="btn btn-success" (click)="onCreateUser(uname)">Create User</button>
+            </div>
+
+        </div>
+        <br>
+
+      <!-- push and splice using ngFor -->
+        <div class="row">
+            <div class="col-md-10">
+                <table class="table">
+                    <thead class="thead-dark" bgcolor="black" height="20px">
+                        <tr>
+                            <th>User Name </th>
+                            <th>Remove</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users; index as i">
+                            <td>
+                                {{user.name}}
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" (click)="onRemoveItem(i)">Remove Item</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
